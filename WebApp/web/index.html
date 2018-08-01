@@ -49,19 +49,168 @@
           
      <div class="form-group">
         <label for="exampleInputEmail1">Monto</label>
-        <input type="number" class="form-control" name="monto" step="0.01" value="0.00" min="0.01">
+        <input type="number" class="form-control" id="montoPago" name="monto" step="0.01" value="0.00" min="0.01">
       </div>
       
           <div class="text-center">
-      <button type="submit" class="btn btn-primary">Pagar</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#gestionpago" onclick="EnviarPago()">Pagar</button>
       </div>
     </form>
         </div>     
   </div>
   </div>
+      
+      
+      <div class="modal" tabindex="-1" role="dialog" id = "gestionpago">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Monedas de pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          
+           <div class="container">
+  <div class="row justify-content-center">
+      <form>
+        <table id="example" class="table  table-hover display">
+  <thead>
+    <tr >
+      <th scope="col">Moneda</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Total</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      
+  
+        <tr >
+          <td>Q200</td>
+          <td> <input type="number" class="form-control" id="m_200" value="0" min="0">    </td>
+          <td><div id="r_200"></td>
+        </tr>
+        <tr >
+          <td>Q100</td>
+          <td> <input type="number" class="form-control" id="m_100" value="0" min="0">    </td>
+          <td><div id="r_100"></td>
+        </tr>
+        
+         <tr >
+          <td>Q50</td>
+          <td> <input type="number" class="form-control" id="m_50" value="0" min="0">    </td>
+          <td><div id="r_50"></td>
+        </tr>
+        
+        <tr >
+          <td>Q20</td>
+          <td> <input type="number" class="form-control" id="m_20" value="0" min="0">    </td>
+          <td><div id="r_20"></td>
+        </tr>
+        
+        <tr >
+          <td>Q10</td>
+          <td> <input type="number" class="form-control" id="m_10" value="0" min="0">    </td>
+          <td><div id="r_10"></td>
+        </tr>
+        
+        <tr >
+          <td>Q5</td>
+          <td> <input type="number" class="form-control" id="m_5" value="0" min="0">    </td>
+          <td><div id="r_5"></td>
+        </tr>
+        
+         <tr >
+          <td>Q1</td>
+          <td> <input type="number" class="form-control" id="m_1" value="0" min="0">    </td>
+          <td><div id="r_1"></td>
+        </tr>
+        
+         <tr >
+          <td>Q0.5</td>
+          <td> <input type="number" class="form-control" id="m_c50" value="0" min="0">    </td>
+          <td><div id="r_c50"></td>
+        </tr>
+        
+         <tr >
+          <td>Q0.25</td>
+          <td> <input type="number" class="form-control" id="m_c25" value="0" min="0">    </td>
+          <td><div id="r_c25"></td>
+        </tr>
+        
+         <tr >
+          <td>Q0.10</td>
+          <td> <input type="number" class="form-control" id="m_c10" value="0" min="0">    </td>
+          <td><div id="r_c10"></td>
+        </tr>
+        
+         <tr >
+          <td>Q0.05</td>
+          <td> <input type="number" class="form-control" id="m_c5" value="0" min="0">    </td>
+          <td><div id="r_c5"></td>
+        </tr>
+        
+         <tr >
+          <td>Q0.01</td>
+          <td> <input type="number" class="form-control" id="m_c1" value="0" min="0">    </td>
+          <td><div id="r_c1"></td>
+        </tr>
+        <tr >
+            <td><b>Total</b></td>
+            <td></td>
+          <td><div id="total"></td>
+        </tr>
+        
+  
+  </tbody>
+</table>  
+                   
+  </form>      
+</div>
+</div>  
+          
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#respuesta">Guardar</button>
+        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+      </div>
+    </div>
+  </div>
+</div>  
+<div class="modal" tabindex="-1" role="dialog" id = "respuesta">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Detalle de cobro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <p>Monto: Q <a id="monto"></a> </p>
+          <p>Abonado: Q <a id="abonado"></a> </p>
+          <p>Vuelto: Q <a id="vuelto"></a> </p>
+          <p><a id="resta"></a> </p>
+      </div>
+      <div class="modal-footer">
+        <div id= "AceptarFinal" onclick="Comprobar()" class="btn btn-success">Aceptar</div>
+        
+        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+      </div>
+    </div>
+  </div>
+</div>  
+              
+              
 
 <script src="js/jquery-1.10.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
 
 
 

@@ -1,5 +1,5 @@
 var total = 0;
-var monto = 0; //obtener
+var monto = 0.00; //obtener
 var cantidades = [0,0,0,0,0,0,0,0,0,0,0,0];
 
 function updateValor (){ 
@@ -97,19 +97,28 @@ $("#m_c1").change(function () {
 });
 
 function Comprobar() {
-     if((Math.round(total*100)/100 ) >= (Math.round(monto*100)/100 )){
+    console.log(monto);
+    if(monto<0.01) {
+           alert("No hay nada que cobrar");
+    }else if((Math.round(total*100)/100 ) >= (Math.round(monto*100)/100 )){
         if (window.confirm('Pago aplicado exitosamente')){
             window.location = 'index.html';
         }
-    }else{
+    }         
+    else{
         alert("Pago insuficiente");
     }
 }
 
-window.onload = function() {
-    monto = document.getElementById("entrada").value;
+
+function EnviarPago(){
+    
+    monto = document.getElementById("montoPago").value;
     console.log(monto);
-    console.log("monto");
+    updateValor();
+}
+
+window.onload = function() {    
     $('#r_200').prepend().html($.trim(0));
     $('#r_100').prepend().html($.trim(0));
     $('#r_50').prepend().html($.trim(0));
@@ -127,6 +136,7 @@ window.onload = function() {
     $('#monto').text(monto);
     $('#vuelto').text(0);
     $('#resta').text("Falta Q "+ monto);
+    monto = 0.00;
 };
 
 
