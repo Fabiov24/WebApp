@@ -22,7 +22,7 @@ function updateValor (){
 }
 
 $("#m_200").change(function () {
-      cantidades[0] = $(this).val()*200; 
+      cantidades[0] = Math.round($(this).val()*200 *100)/100; 
       
     $('#r_200').prepend().html($.trim(cantidades[0]));
     updateValor();
@@ -30,68 +30,68 @@ $("#m_200").change(function () {
 });
 
 $("#m_100").change(function () {
-      cantidades[1] = $(this).val()*100; 
+      cantidades[1] = Math.round($(this).val()*100 *100)/100; 
     $('#r_100').prepend().html($.trim(cantidades[1]));
     updateValor();
 });
 
 $("#m_50").change(function () {
-      cantidades[2] = $(this).val()*50; 
+      cantidades[2] = Math.round($(this).val()*50 *100)/100; 
     $('#r_50').prepend().html($.trim(cantidades[2]));
     updateValor();
 });
 
 $("#m_20").change(function () {
-      cantidades[3] = $(this).val()*20; 
+      cantidades[3] = Math.round($(this).val()*20 *100)/100; 
     $('#r_20').prepend().html($.trim(cantidades[3]));
     updateValor();
 });
 
 $("#m_10").change(function () {
-      cantidades[4] = $(this).val()*10; 
+      cantidades[4] = Math.round($(this).val()*10 *100)/100; 
     $('#r_10').prepend().html($.trim(cantidades[4]));
     updateValor();
 });
 
 $("#m_5").change(function () {
-    cantidades[5] = $(this).val()*5; 
+    cantidades[5] = Math.round($(this).val()*5 *100)/100; 
     $('#r_5').prepend().html($.trim(cantidades[5]));
     updateValor();
 });
 
 $("#m_1").change(function () {
-    cantidades[6] = $(this).val()*1; 
+    cantidades[6] = Math.round($(this).val()*1 *100)/100 
     $('#r_1').prepend().html($.trim(cantidades[6]));
     updateValor();
 });
 
 $("#m_c50").change(function () {
-    cantidades[7] = $(this).val()*0.5; 
+    cantidades[7] = Math.round($(this).val()*0.5 *100)/100
     $('#r_c50').prepend().html($.trim(cantidades[7]));
     updateValor();
 });
 
 
 $("#m_c25").change(function () {
-    cantidades[8] = $(this).val()*0.25;    
+    cantidades[8] = Math.round($(this).val()*0.25 *100)/100  
     $('#r_c25').prepend().html($.trim(cantidades[8]));
     updateValor();
 });
 
 $("#m_c10").change(function () {
-    cantidades[9] = $(this).val()*0.10; 
+    cantidades[9] = Math.round($(this).val()*0.10 *100)/100 
     $('#r_c10').prepend().html($.trim(cantidades[9]));
     updateValor();
 });
 
 $("#m_c5").change(function () {
-    cantidades[10] = $(this).val()*0.05;    
+    cantidades[10] = Math.round($(this).val()*0.05 *100)/100
     $('#r_c5').prepend().html($.trim(cantidades[10]));
     updateValor();
 });
 
 $("#m_c1").change(function () {
-    cantidades[11] = $(this).val()*0.01;    
+    cantidades[11] = Math.round($(this).val()*0.01 *100)/100    
     $('#r_c1').prepend().html($.trim(cantidades[11]));
     updateValor();
 });
